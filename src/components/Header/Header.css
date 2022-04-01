@@ -1,0 +1,23 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 5rem;
+  background-color: aquamarine;
+}
+
+.logo-wrapper {
+  font-size: xx-large;
+}
+
+.navbar > .links {
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar > .links > li {
+  list-style: none;
+  font-size: large;
+  cursor: pointer;
+}
