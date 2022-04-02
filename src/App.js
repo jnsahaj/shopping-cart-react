@@ -19,6 +19,10 @@ function App() {
     )));
   };
 
+  const handleDeleteCartItem = (itemId) => {
+    setCartItems(cartItems.filter((item) => item.id !== itemId));
+  };
+
   return (
     <BrowserRouter>
       <Header />
@@ -37,6 +41,7 @@ function App() {
             <Cart
               items={cartItems}
               onQuantityChange={handleQuantityChange}
+              onItemDelete={handleDeleteCartItem}
             />
           )}
         />

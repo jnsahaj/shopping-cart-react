@@ -2,10 +2,14 @@ import React from 'react';
 
 function CartItemCard({
   // eslint-disable-next-line react/prop-types
-  id, imgSrc, name, price, quantity, onQuantityChange,
+  id, imgSrc, name, price, quantity, onQuantityChange, onItemDelete,
 }) {
   const handleQuantityChange = (e) => {
     onQuantityChange(id, e.target.value);
+  };
+
+  const handleDeleteCartItem = () => {
+    onItemDelete(id);
   };
 
   return (
@@ -25,6 +29,13 @@ function CartItemCard({
           onChange={handleQuantityChange}
         />
       </div>
+      <button
+        type="button"
+        className="delete-cart-item"
+        onClick={handleDeleteCartItem}
+      >
+        Delete
+      </button>
     </div>
   );
 }
