@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Shop from './components/pages/Shop/Shop';
-import Cart from './components/Cart/Cart';
+import Cart from './components/pages/Cart/Cart';
 import ShopData from './data/ShopData.json';
 import './App.css';
 
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header cartItemsCount={cartItems.length} />
       <Routes>
         <Route
           path="/"

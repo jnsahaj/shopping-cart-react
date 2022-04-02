@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiShoppingBag, FiShoppingCart } from 'react-icons/fi';
 import './Header.css';
 
-function Header() {
+function Header({ cartItemsCount }) {
   return (
     <div className="header">
       <Link to="/">
@@ -14,11 +16,17 @@ function Header() {
       <nav className="navbar">
         <ul className="links">
           <Link to="/shop">
-            <li>Shop</li>
+            <li>
+              <FiShoppingBag />
+              <div>Shop</div>
+            </li>
           </Link>
-          <li>About</li>
           <Link to="/cart">
-            <li>Cart</li>
+            <li>
+              {cartItemsCount > 0 && <div className="cart-items-badge">{cartItemsCount}</div>}
+              <FiShoppingCart />
+              <div>Cart</div>
+            </li>
           </Link>
         </ul>
       </nav>
