@@ -1,0 +1,24 @@
+.quantity-slider {
+  display: flex;
+  gap: .5rem;
+}
+
+.quantity-display {
+  border: 1px solid var(--contrast-color-muted);
+  padding: .2rem 1rem;
+}
+
+.quantity-slider > button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: var(--fs-500);
+}
+
+.quantity-slider > button.increase {
+  color: var(--action-color-400);
+}
+
+.quantity-slider > button.decrease {
+  color: var(--contrast-color-muted);
+}

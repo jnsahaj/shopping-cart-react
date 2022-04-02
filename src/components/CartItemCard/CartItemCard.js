@@ -1,12 +1,14 @@
 import React from 'react';
+import { FiTrash2 } from 'react-icons/fi';
+import QuantitySlider from '../QuantitySlider/QuantitySlider';
 import './CartItemCard.css';
 
 function CartItemCard({
   // eslint-disable-next-line react/prop-types
-  id, imgSrc, heading, name, price, quantity, onQuantityChange, onItemDelete,
+  id, imgSrc, heading, name, price, onQuantityChange, onItemDelete,
 }) {
-  const handleQuantityChange = (e) => {
-    onQuantityChange(id, e.target.value);
+  const handleQuantityChange = (quantity) => {
+    onQuantityChange(id, quantity);
   };
 
   const handleDeleteCartItem = () => {
@@ -24,19 +26,14 @@ function CartItemCard({
         <div className="price">{`$${price}`}</div>
       </div>
       <div className="quantity-wrapper">
-        <input
-          type="number"
-          className="quantity-input"
-          value={quantity}
-          onChange={handleQuantityChange}
-        />
+        <QuantitySlider onQuantityChange={handleQuantityChange} />
       </div>
       <button
         type="button"
         className="delete-cart-item"
         onClick={handleDeleteCartItem}
       >
-        Delete
+        <FiTrash2 />
       </button>
     </div>
   );
