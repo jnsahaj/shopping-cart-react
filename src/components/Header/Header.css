@@ -16,8 +16,12 @@
   gap: 3rem;
 }
 
-.navbar > .links > li {
+.navbar > .links li {
   list-style: none;
   font-size: large;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
