@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FiPlus, FiMinus } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 import './QuantitySlider.css';
 
-// eslint-disable-next-line react/prop-types
 function QuantitySlider({ onQuantityChange }) {
   const [quantity, setQuantity] = useState(1);
   const decreaseQuantity = () => {
@@ -31,5 +31,9 @@ function QuantitySlider({ onQuantityChange }) {
     </div>
   );
 }
+
+QuantitySlider.propTypes = {
+  onQuantityChange: PropTypes.func.isRequired,
+};
 
 export default QuantitySlider;

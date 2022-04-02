@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingBag, FiShoppingCart } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 import './Header.css';
 
 function Header({ cartItemsCount }) {
@@ -33,5 +33,13 @@ function Header({ cartItemsCount }) {
     </div>
   );
 }
+
+Header.defaultProps = {
+  cartItemsCount: 0,
+};
+
+Header.propTypes = {
+  cartItemsCount: PropTypes.number,
+};
 
 export default Header;

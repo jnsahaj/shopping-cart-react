@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ItemCard.css';
 
 function ItemCard({
@@ -26,8 +26,18 @@ function ItemCard({
   );
 }
 
-// ItemCard.PropTypes = {
-//   imgSrc: PropTypes.string,
-// };
+ItemCard.defaultProps = {
+  imgSrc: '/',
+  name: '',
+};
+
+ItemCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
+  heading: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.number.isRequired,
+  onAddToCart: PropTypes.func.isRequired,
+};
 
 export default ItemCard;

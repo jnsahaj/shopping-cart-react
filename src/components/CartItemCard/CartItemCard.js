@@ -1,10 +1,10 @@
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 import QuantitySlider from '../QuantitySlider/QuantitySlider';
 import './CartItemCard.css';
 
 function CartItemCard({
-  // eslint-disable-next-line react/prop-types
   id, imgSrc, heading, name, price, onQuantityChange, onItemDelete,
 }) {
   const handleQuantityChange = (quantity) => {
@@ -38,5 +38,20 @@ function CartItemCard({
     </div>
   );
 }
+
+CartItemCard.defaultProps = {
+  imgSrc: '/',
+  name: '',
+};
+
+CartItemCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
+  heading: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.number.isRequired,
+  onQuantityChange: PropTypes.func.isRequired,
+  onItemDelete: PropTypes.func.isRequired,
+};
 
 export default CartItemCard;

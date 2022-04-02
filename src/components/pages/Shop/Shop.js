@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemCard from '../../ItemCard/ItemCard';
 import './Shop.css';
 
-// eslint-disable-next-line react/prop-types
 function Shop({ items, onAddToCart }) {
   const handleAddToCart = (itemId) => {
     onAddToCart(itemId);
@@ -20,7 +20,7 @@ function Shop({ items, onAddToCart }) {
             heading={item.brand}
             name={item.title}
             imgSrc={item.images_list[0]}
-            price={item.price}
+            price={parseFloat(item.price)}
             isInCart={false}
             onAddToCart={handleAddToCart}
           />
@@ -29,5 +29,11 @@ function Shop({ items, onAddToCart }) {
     </div>
   );
 }
+
+Shop.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAddToCart: PropTypes.func.isRequired,
+};
 
 export default Shop;
