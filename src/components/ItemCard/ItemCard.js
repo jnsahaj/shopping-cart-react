@@ -3,7 +3,7 @@ import React from 'react';
 import './ItemCard.css';
 
 function ItemCard({
-  id, imgSrc, name, price, onAddToCart,
+  id, imgSrc, heading, name, price, onAddToCart,
 }) {
   const handleAddToCart = () => {
     onAddToCart(id);
@@ -15,6 +15,7 @@ function ItemCard({
         <img src={imgSrc} alt={name} />
       </div>
       <div className="content-wrapper">
+        <div className="heading">{heading}</div>
         <div className="name">{name}</div>
         <div className="price">{`$${price}`}</div>
       </div>

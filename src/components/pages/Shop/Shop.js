@@ -17,9 +17,11 @@ function Shop({ items, onAddToCart }) {
           <ItemCard
             key={item.id}
             id={item.id}
+            heading={item.brand}
             name={item.title}
             imgSrc={item.images_list[0]}
             price={item.price}
+            isInCart={false}
             onAddToCart={handleAddToCart}
           />
         ))}

@@ -1,8 +1,9 @@
 import React from 'react';
+import './CartItemCard.css';
 
 function CartItemCard({
   // eslint-disable-next-line react/prop-types
-  id, imgSrc, name, price, quantity, onQuantityChange, onItemDelete,
+  id, imgSrc, heading, name, price, quantity, onQuantityChange, onItemDelete,
 }) {
   const handleQuantityChange = (e) => {
     onQuantityChange(id, e.target.value);
@@ -18,6 +19,7 @@ function CartItemCard({
         <img src={imgSrc} alt={name} />
       </div>
       <div className="content-wrapper">
+        <div className="heading">{heading}</div>
         <div className="name">{name}</div>
         <div className="price">{`$${price}`}</div>
       </div>

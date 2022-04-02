@@ -26,6 +26,7 @@ function Cart({ items, onQuantityChange, onItemDelete }) {
         <CartItemCard
           key={item.id}
           id={item.id}
+          heading={item.brand}
           name={item.title}
           imgSrc={item.images_list[0]}
           price={item.price}
