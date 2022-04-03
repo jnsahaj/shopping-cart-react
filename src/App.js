@@ -6,6 +6,7 @@ import Shop from './components/pages/Shop/Shop';
 import Cart from './components/pages/Cart/Cart';
 import ShopData from './data/ShopData.json';
 import './App.css';
+import Item from './components/pages/Item/Item';
 
 function App() {
   const [shopItems, setShopItems] = useState([]);
@@ -49,6 +50,7 @@ function App() {
           element={(
             <Shop
               items={shopItems}
+              cartItemsId={cartItems.map((item) => item.id)}
               onAddToCart={handleAddToCart}
             />
           )}
@@ -60,6 +62,15 @@ function App() {
               items={cartItems}
               onQuantityChange={handleQuantityChange}
               onItemDelete={handleDeleteCartItem}
+            />
+          )}
+        />
+        <Route
+          path="/shop/:id"
+          element={(
+            <Item
+              cartItemsId={cartItems.map((item) => item.id)}
+              onAddToCart={handleAddToCart}
             />
           )}
         />
