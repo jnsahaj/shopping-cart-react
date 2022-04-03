@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FiCheckSquare } from 'react-icons/fi';
 import './ItemCard.css';
 
 function ItemCard({
-  id, imgSrc, heading, name, price, onAddToCart,
+  id, imgSrc, heading, name, price, isInCart, onAddToCart,
 }) {
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault(); // Stop event bubbling
     onAddToCart(id);
   };
 
@@ -19,9 +21,21 @@ function ItemCard({
         <div className="name">{name}</div>
         <div className="price">{`$${price}`}</div>
       </div>
-      <button type="button" className="add-to-cart" onClick={handleAddToCart}>
-        Add to Cart
-      </button>
+      {isInCart ? (
+        <div className="in-cart-wrapper">
+          <div className="text">IN CART</div>
+          <FiCheckSquare />
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="add-to-cart"
+          onClick={handleAddToCart}
+        >
+          ADD TO CART
+        </button>
+      ) }
+
     </div>
   );
 }
@@ -29,6 +43,7 @@ function ItemCard({
 ItemCard.defaultProps = {
   imgSrc: '/',
   name: '',
+  isInCart: false,
 };
 
 ItemCard.propTypes = {
@@ -37,6 +52,7 @@ ItemCard.propTypes = {
   heading: PropTypes.string.isRequired,
   name: PropTypes.string,
   price: PropTypes.number.isRequired,
+  isInCart: PropTypes.bool,
   onAddToCart: PropTypes.func.isRequired,
 };
 
