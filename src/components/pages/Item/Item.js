@@ -14,12 +14,11 @@ function Item({ cartItemsId, onAddToCart }) {
     onAddToCart(itemId);
   };
 
-  const fetchItem = () => {
-    setItem(ShopData.find((selectedItem) => selectedItem.id === itemId));
-  };
+  const fetchItem = () => ShopData.find((selectedItem) => selectedItem.id === itemId);
 
   useEffect(() => {
-    fetchItem();
+    const fetchedItem = fetchItem();
+    setItem(fetchedItem);
   }, []);
 
   useEffect(() => {
