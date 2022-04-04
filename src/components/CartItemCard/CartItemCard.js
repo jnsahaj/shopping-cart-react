@@ -5,10 +5,10 @@ import QuantitySlider from '../QuantitySlider/QuantitySlider';
 import './CartItemCard.css';
 
 function CartItemCard({
-  id, imgSrc, heading, name, price, onQuantityChange, onItemDelete,
+  id, imgSrc, heading, name, price, quantity, onQuantityChange, onItemDelete,
 }) {
-  const handleQuantityChange = (quantity) => {
-    onQuantityChange(id, quantity);
+  const handleQuantityChange = (newQuantity) => {
+    onQuantityChange(id, newQuantity);
   };
 
   const handleDeleteCartItem = () => {
@@ -26,10 +26,11 @@ function CartItemCard({
         <div className="price">{`$${price}`}</div>
       </div>
       <div className="quantity-wrapper">
-        <QuantitySlider onQuantityChange={handleQuantityChange} />
+        <QuantitySlider quantity={quantity} onQuantityChange={handleQuantityChange} />
       </div>
       <button
         type="button"
+        aria-label="delete"
         className="delete-cart-item"
         onClick={handleDeleteCartItem}
       >
@@ -50,6 +51,7 @@ CartItemCard.propTypes = {
   heading: PropTypes.string.isRequired,
   name: PropTypes.string,
   price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
   onQuantityChange: PropTypes.func.isRequired,
   onItemDelete: PropTypes.func.isRequired,
 };

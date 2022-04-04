@@ -18,7 +18,7 @@ function ItemCard({
       </div>
       <div className="content-wrapper">
         <div className="heading">{heading}</div>
-        <div className="name">{name}</div>
+        <p className="name">{name}</p>
         <div className="price">{`$${price}`}</div>
       </div>
       {isInCart ? (
