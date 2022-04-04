@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import './QuantitySlider.css';
 
-function QuantitySlider({ onQuantityChange }) {
-  const [quantity, setQuantity] = useState(1);
+function QuantitySlider({ quantity, onQuantityChange }) {
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
       onQuantityChange(quantity - 1);
     }
   };
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
     onQuantityChange(quantity + 1);
   };
 
   return (
     <div className="quantity-slider-wrapper">
       <div className="quantity-slider">
-        <button type="button" className="decrease" onClick={decreaseQuantity}>
+        <button type="button" className="decrease" aria-label="decrease" onClick={decreaseQuantity}>
           <FiMinus />
         </button>
         <div className="quantity-display">{quantity}</div>
-        <button type="button" className="increase" onClick={increaseQuantity}>
+        <button type="button" className="increase" aria-label="increase" onClick={increaseQuantity}>
           <FiPlus />
         </button>
       </div>
@@ -33,6 +30,7 @@ function QuantitySlider({ onQuantityChange }) {
 }
 
 QuantitySlider.propTypes = {
+  quantity: PropTypes.number.isRequired,
   onQuantityChange: PropTypes.func.isRequired,
 };
 
