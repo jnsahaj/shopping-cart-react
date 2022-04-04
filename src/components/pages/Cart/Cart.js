@@ -20,12 +20,6 @@ function Cart({ items, onQuantityChange, onItemDelete }) {
 
   return (
     <div className="cart page">
-      <div className="total-amount">
-        {
-          getTotalAmount(items)
-        }
-
-      </div>
       <div className="cart-items-container">
         {items.map((item) => (
           <CartItemCard
@@ -41,6 +35,19 @@ function Cart({ items, onQuantityChange, onItemDelete }) {
           />
         ))}
       </div>
+      {items.length > 0
+        ? (
+          <div className="order-summary-wrapper">
+            <h2 className="heading">Order Summary</h2>
+            <div className="amount">
+              Subtotal:
+              <span>{` $${getTotalAmount(items)}`}</span>
+            </div>
+            <button type="button" className="checkout">Checkout</button>
+          </div>
+        )
+        : <h1 className="cart-is-empty">Cart is Empty!</h1> }
+
     </div>
   );
 }
