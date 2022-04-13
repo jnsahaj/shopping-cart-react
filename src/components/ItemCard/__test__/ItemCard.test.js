@@ -5,25 +5,31 @@ import ItemCard from '../ItemCard';
 
 /* eslint-env jest */
 
-const handleAddToCart = jest.fn();
-
-function MockItemCard() {
-  return (
-    <ItemCard
-      id="1"
-      name="itemName"
-      imgSrc="itemImageSrc"
-      price="50"
-      onAddToCart={handleAddToCart}
-    />
-  );
-}
-
 describe('ItemCard', () => {
-  it('renders correct name', () => {
+  const handleAddToCart = jest.fn();
+
+  function MockItemCard() {
+    return (
+      <ItemCard
+        id="1"
+        heading="itemHeading"
+        name="itemName"
+        imgSrc="itemImageSrc"
+        price="50"
+        isInCart
+        onAddToCart={handleAddToCart}
+      />
+    );
+  }
+
+  it('renders correct heading and name', () => {
     render(<MockItemCard />);
+
     const itemName = screen.getByText('itemName');
+    const itemHeading = screen.getByText('itemHeading');
+
     expect(itemName).toBeInTheDocument();
+    expect(itemHeading).toBeInTheDocument();
   });
 
   it('renders correct image', () => {
@@ -38,10 +44,38 @@ describe('ItemCard', () => {
     expect(itemPrice).toBeInTheDocument();
   });
 
-  it('add to cart handler is called', () => {
-    render(<MockItemCard />);
+  it('renders IN CART message and not ADD TO CART button if item is in cart ', () => {
+    render(<ItemCard
+      id="1"
+      heading="itemHeading"
+      name="itemName"
+      imgSrc="itemImageSrc"
+      price="50"
+      isInCart
+      onAddToCart={handleAddToCart}
+    />);
+
+    const inCart = screen.getByText(/in cart/i);
+    const addToCartButton = screen.queryByRole('button');
+
+    expect(inCart).toBeInTheDocument();
+    expect(addToCartButton).not.toBeInTheDocument();
+  });
+
+  it('calls add to cart handler if add-to-cart button is clicked', () => {
+    render(<ItemCard
+      id="1"
+      heading="itemHeading"
+      name="itemName"
+      imgSrc="itemImageSrc"
+      price="50"
+      isInCart={false}
+      onAddToCart={handleAddToCart}
+    />);
+
     const addToCartButton = screen.getByRole('button');
     userEvent.click(addToCartButton);
+
     expect(handleAddToCart).toHaveBeenCalledTimes(1);
   });
 });
