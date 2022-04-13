@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Shop from './components/pages/Shop/Shop';
@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header cartItemsCount={cartItems.length} />
       <Routes>
         <Route
@@ -77,7 +77,7 @@ function App() {
           )}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
