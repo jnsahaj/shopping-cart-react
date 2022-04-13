@@ -32,6 +32,7 @@ function Item({ shopItems, cartItemsId, onAddToCart }) {
           <p className="name">{item.title}</p>
           <div className="price">{`$${item.price.slice(1, item.price.indexOf('-'))}`}</div>
           {inCart && <div className="in-cart">IN CART</div> }
+          {item.features != null && (
           <div className="feature-wrapper">
             {item.features.map((feature) => {
               const featureName = Object.keys(feature)[0];
@@ -43,6 +44,7 @@ function Item({ shopItems, cartItemsId, onAddToCart }) {
               );
             })}
           </div>
+          )}
           <div className="button-wrapper">
             {!inCart && (
             <button type="button" className="add-to-cart" onClick={handleAddToCart}>
