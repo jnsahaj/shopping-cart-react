@@ -9,19 +9,19 @@ import Item from '../Item';
 describe('Item', () => {
   const mockShopData = [{
     id: '1',
-    price: '£49.57 - £234.95',
+    price: 49.57,
     brand: 'Fila',
     images_list: ['/'],
   },
   {
     id: '2',
-    price: '£38.96',
+    price: 38.96,
     brand: 'Desigual',
     images_list: ['/'],
   },
   {
     id: '3',
-    price: '£161.63 - £202.04',
+    price: 161.63,
     brand: 'Aquatalia',
     images_list: ['/'],
   }];

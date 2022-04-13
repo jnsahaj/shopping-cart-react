@@ -30,7 +30,7 @@ function Item({ shopItems, cartItemsId, onAddToCart }) {
         <div className="content-wrapper">
           <div className="heading">{item.brand}</div>
           <p className="name">{item.title}</p>
-          <div className="price">{`$${item.price.slice(1, item.price.indexOf('-'))}`}</div>
+          <div className="price">{`$${item.price}`}</div>
           {inCart && <div className="in-cart">IN CART</div> }
           {item.features != null && (
           <div className="feature-wrapper">
