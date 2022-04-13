@@ -1,0 +1,82 @@
+.home.page {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: calc(100vh - 115px);
+  background-image: url('../../../assets/background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(85%);
+}
+
+.home > .logo-wrapper {
+  margin-top: 3rem;
+  position: relative;
+  min-height: 150px;
+  background-color: rgb(0 0 0 / 60%);
+  display: grid;
+  place-items: center;
+  padding: 0 3rem;
+}
+
+.home > .logo-wrapper > img {
+  width: 20rem;
+  object-fit: cover;
+  overflow: hidden;
+  transform: scale(1.2);
+  filter: invert(89%) sepia(75%) saturate(7322%) hue-rotate(333deg) brightness(107%) contrast(84%);
+}
+
+.home > .logo-wrapper > .shop-at {
+  position: absolute;
+  top: 200px;
+  color: var(--contrast-color);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-700);
+}
+
+.home .shop {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+
+.home .shop button {
+  cursor: pointer;
+  background-color: var(--action-color-400);
+  color: var(--neutral-color);
+  border: none;
+  padding: .5rem 5rem;
+  font-size: var(--fs-700);
+  font-weight: var(--fw-700);
+  position: relative;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+}
+
+.home .shop button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  background-color: var(--pop-color);
+  transition: all .3s ease-in-out;
+  z-index: -1;
+}
+
+.home .shop button:hover {
+  color: var(--contrast-color);
+  outline-color: var(--pop-color);
+}
+
+.home .shop button:hover::after {
+  transform: scaleX(1);
+}
+
+.home .shop-at {
+  
+}

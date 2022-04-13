@@ -1,0 +1,89 @@
+.item-page.page {
+  display: grid;
+  place-items: center;
+}
+
+.item-container {
+  display: flex;
+  gap: 5rem;
+  padding: 1rem;
+  width: max(80%, 17rem);
+  color: var(--contrast-color);
+}
+
+.item-container > .img-wrapper {
+  display: grid;
+  place-items: center;
+  align-self: flex-start;
+  padding: 4rem 0;
+  height: max(fit-content, 400px);
+  background-color: white;
+  width: 40%;
+}
+
+.item-container > .img-wrapper > img {
+  max-width: 80%;
+}
+
+.item-container > .content-wrapper {
+  max-width: 50%;
+}
+
+.item-container > .content-wrapper > .heading {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-700);
+  color: var(--contrast-color);
+}
+
+.item-container > .content-wrapper > .name {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-200);
+  color: var(--contrast-color-muted);
+}
+
+.item-container > .content-wrapper > .price {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-700);
+  color: var(--contrast-color);
+}
+
+.item-container > .content-wrapper > .in-cart {
+  color: var(--confirm-color);
+  font-weight: var(--fw-700);
+  padding-top: 1rem;
+}
+
+.item-container > .content-wrapper > .feature-wrapper {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  line-height: 2;
+}
+
+.item-container > .content-wrapper > .feature-wrapper > .feature > .feature-name {
+  font-weight: var(--fw-400);
+}
+
+.item-container > .content-wrapper > .button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item-container > .content-wrapper > .button-wrapper button {
+  cursor: pointer;
+  background-color: var(--neutral-color);
+  color: var(--action-color-400);
+  border: 1px solid var(--action-color-400);
+  padding: .8rem 3.5rem;
+  min-width: 13rem;
+  font-size: var(--fs-400);
+}
+
+.item-container > .content-wrapper > .button-wrapper button.buy-now {
+  border-color: var(--confirm-color); 
+  background-color: var(--confirm-color);
+  color: var(--neutral-color);
+}
+

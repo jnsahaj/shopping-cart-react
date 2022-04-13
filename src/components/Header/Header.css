@@ -1,14 +1,25 @@
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .5rem 5rem;
-  background-color: aquamarine;
+  padding: 1.5rem 5rem .5rem;
+  background-color: var(--neutral-color);
+  background-blend-mode: color-burn;
+  box-shadow: 0 3px 15px rgb(0 0 0 / 25%);
+  height: 115px;
 }
 
-.logo-wrapper {
-  font-size: xx-large;
+.header .logo-wrapper > img {
+  width: 5rem;
+  object-fit: cover;
+  max-height: 3rem;
+  overflow: hidden;
+  transform: scale(3);
+  filter: invert(89%) sepia(75%) saturate(7322%) hue-rotate(333deg) brightness(107%) contrast(84%);
 }
 
 .navbar > .links {
@@ -16,12 +27,37 @@
   gap: 3rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar > .links li {
   list-style: none;
   font-size: large;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--action-color-400);
 }
 
-a {
-  text-decoration: none;
+.navbar > .links li > .link-names {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+  color: var(--contrast-color);
+}
+
+.cart-items-badge {
+  position: absolute;
+  top: -.5rem;
+  right: -.1rem;
+  font-size: 0.65rem;
+  background-color: var(--pop-color);
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
 }

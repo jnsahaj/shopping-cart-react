@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+:root {
+  --neutral-color: #263238;
+  --primary-color: #455A64;
+
+  /* --action-color-400: #81B2C9; */
+  --action-color-400: #e8a058;
+  --pop-color: rgb(203, 75, 75);
+  --confirm-color: #00BFA5;
+
+  --contrast-color: white;
+  --contrast-color-muted: rgb(161, 161, 161);
+
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-700: 1.75rem;
+
+  --fw-200: 200;
+  --fw-400: 500;
+  --fw-700: 700;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background-color: var(--neutral-color);
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body::-webkit-scrollbar {
+  width: .5em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  margin: 5rem 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  cursor: pointer;
+  border-radius: 3px;
+  transition: filter .3s;
 }

@@ -1,4 +1,117 @@
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 17rem;
+  max-height: 475px;
+  color: var(--contrast-color);
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+}
+
+/* @media only screen and (max-width: 768px) {
+  .item {
+    width: 50%;
+  }
+} */
+
+.item > div {
+  padding: 0 1rem;
+}
+
+.item > .img-wrapper {
+  display: grid;
+  place-items: center;
+  min-height: 20rem;
+  border-bottom: 1px solid var(--primary-color);
+  background-color: white;
+  width: 100%;
+}
+
 .item > .img-wrapper > img {
-  max-width: 200px;
-  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 60%;
+  overflow: hidden;
+}
+
+.item > .content-wrapper > .heading {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-700);
+  color: var(--contrast-color);
+}
+
+.item > .content-wrapper > .name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-200);
+  color: var(--contrast-color-muted);
+}
+
+.item > .content-wrapper > .price {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+  color: var(--contrast-color);
+}
+
+.item > button.add-to-cart {
+  background-color: var(--neutral-color);
+  color: var(--action-color-400);
+  border: none;
+  padding: .5rem 3rem;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  position: relative;
+  transition: all .3s ease-in-out;
+  outline: 1px solid var(--action-color-400);
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.item > button.add-to-cart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  background-color: var(--action-color-400);
+  transition: all .3s ease-in-out;
+  z-index: -1;
+}
+
+.item > .in-cart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  gap: .7rem;
+  background-color: var(--neutral-color);
+  color: var(--confirm-color);
+  border: none;
+  padding: .4rem 1.8rem;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  margin-bottom: 1rem;
+}
+
+.item:hover {
+  box-shadow: 0 2px 10px 4px rgb(40 44 63 / 7%);
+}
+
+.item > button.add-to-cart:hover {
+  color: var(--neutral-color);
+}
+
+.item > button.add-to-cart:hover::after {
+  transform: scaleX(1);
 }
