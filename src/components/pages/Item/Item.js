@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ShopData from '../../../data/ShopData.json';
 import './Item.css';
 
-// eslint-disable-next-line react/prop-types
-function Item({ cartItemsId, onAddToCart }) {
+function Item({ shopItems, cartItemsId, onAddToCart }) {
   const { id: itemId } = useParams();
   const [item, setItem] = useState(null);
   const [inCart, setInCart] = useState(false);
@@ -14,11 +12,8 @@ function Item({ cartItemsId, onAddToCart }) {
     onAddToCart(itemId);
   };
 
-  const fetchItem = () => ShopData.find((selectedItem) => selectedItem.id === itemId);
-
   useEffect(() => {
-    const fetchedItem = fetchItem();
-    setItem(fetchedItem);
+    setItem(shopItems.find((selectedItem) => selectedItem.id === itemId));
   }, []);
 
   useEffect(() => {
@@ -73,6 +68,8 @@ Item.defaultProps = {
 };
 
 Item.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  shopItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   cartItemsId: PropTypes.arrayOf(PropTypes.string),
   onAddToCart: PropTypes.func.isRequired,
 };

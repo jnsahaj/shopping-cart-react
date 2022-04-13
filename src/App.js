@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Shop from './components/pages/Shop/Shop';
 import Cart from './components/pages/Cart/Cart';
-import ShopData from './data/ShopData.json';
 import './App.css';
 import Item from './components/pages/Item/Item';
 
@@ -30,7 +29,9 @@ function App() {
   };
 
   const fetchItems = async () => {
-    setShopItems(ShopData.map((item) => ({ ...item, price: item.price.slice(1, item.price.indexOf('-')) })));
+    const response = await fetch('data/ShopData.json');
+    const shopData = await response.json();
+    setShopItems(shopData.map((item) => ({ ...item, price: item.price.slice(1, item.price.indexOf('-')) })));
   };
 
   useEffect(() => {
@@ -69,6 +70,7 @@ function App() {
           path="/shop/:id"
           element={(
             <Item
+              shopItems={shopItems}
               cartItemsId={cartItems.map((item) => item.id)}
               onAddToCart={handleAddToCart}
             />
